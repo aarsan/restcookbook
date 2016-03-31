@@ -1,0 +1,12 @@
+{
+    "common": {
+        "folders": [
+            "c:/kCura",
+            "c:/Progger"
+        ],
+        "regkeys": [
+            {"dword1": 2},
+            {"dword2": 9}
+        ]
+    }
+}
