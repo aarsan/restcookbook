@@ -16,7 +16,7 @@ action :create do
     template "c:/#{gid}/app.conf" do
       source 'app.erb'
       variables({
-        :sa => loc['street_address']
+          :sa => loc['street_address']
         })
       action :create
     end
