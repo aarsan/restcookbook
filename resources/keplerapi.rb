@@ -6,21 +6,19 @@ property :gid, String, required: false
 
 action :create do
 
-    locs = Chef::HTTP.new(guri).get("?id=#{gid}")
-    locs = JSON.parse(locs)
-    
-    locs.each do |loc|
+  locs = Chef::HTTP.new(guri).get("?id=#{gid}")
+  locs = JSON.parse(locs)
 
-        directory "c:/#{gid}" do
-            action :create
-        end
-
-        template "c:/#{gid}/app.conf" do
-            source 'app.erb'
-            variables({
-                :sa => loc['street_address']
-            })
-        action :create
-        end
+  locs.each do |loc|
+    directory "c:/#{gid}" do
+      action :create
     end
+    template "c:/#{gid}/app.conf" do
+      source 'app.erb'
+      variables({
+        :sa => loc['street_address']
+        })
+      action :create
+    end
+  end
 end
